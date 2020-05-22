@@ -1,6 +1,6 @@
 body {
     background-color: #010165;
-    margin: 0px;
+    margin: 0;
   }
   .header, #current-streak, #best-streak{
     background-color:#00ffff;
@@ -51,5 +51,20 @@ body {
       cursor:pointer;
   }
   
+  @media only screen and (max-width: 970px){
+    body{
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 450px){
+    table.instructions-row, table.points-row{
+      width: 100%;
+    }
+    .instructions-number, .instructions-text{
+      padding: 0;
+      font-size: 12px;
+    }
+    
+  }
   
  

@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+.main-title{
+    font-size: 100px;
+    font-weight: bold;
+    color: khaki;
+    text-align: center;
+    background-image: url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-2/pattern.jpeg");
+    margin: 30px 0;
+}
+section .text-color{
+    font-size: 32px;
+    font-weight: bold;
+    color:white;
+    margin: 20px 0;
+}
+section .background-1{
+    background-color: mediumspringgreen;
+}
+section .background-2{
+    background-color: lightcoral;
+}
+section .background-3{
+    background-color: skyblue;
+}
+.spacing{
+    margin: 12.5px 0;
+}
