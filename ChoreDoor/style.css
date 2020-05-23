@@ -29,10 +29,10 @@ body {
     margin: 0 auto;
     border-spacing: 20px;
   }
-  .door-row, .header, td{
+  .door-row, .header, td, .citation{
       text-align: center;
   }
-  .instructions-text, th{
+  .instructions-text, th, .citation{
       color:white;
       font-family: 'Work Sans';
       font-size: medium;
@@ -60,7 +60,7 @@ body {
     table.instructions-row, table.points-row{
       width: 100%;
     }
-    .instructions-number, .instructions-text{
+    .instructions-number, .instructions-text, .citation{
       padding: 0;
       font-size: 12px;
     }
