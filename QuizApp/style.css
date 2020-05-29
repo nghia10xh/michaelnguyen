@@ -9,6 +9,10 @@ html{
 
     box-sizing: border-box; 
 }
+#body-game, #body-index{
+    background-image: url("backgroundImage.jpg");
+    background-size: cover;
+}
 h1, a{
     color: #56a5eb;
     text-decoration: none;

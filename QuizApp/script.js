@@ -3,32 +3,30 @@ var questionElement=document.getElementById("question");
 var answerTargets=Array.from(document.getElementsByClassName("answers"));
 var roundControl=document.getElementById("advance");
 var playing=true;
+
 const dataBase=[{
-    question: "Who has written this book?",
-    choice1: "Mike",
-    choice2: "Tyler",
-    choice3: "Nick",
+    question: "(Genesis 1:1) Fill in the blank: In the beginning God created___?",
+    choice1: "Heavens and the earth",
+    choice2: "Light",
+    choice3: "The earth",
     choice4: "Johnny",
-    rightAnswer:"Mike"
+    rightAnswer:"Heavens and the earth"
 },
 {
-    question: "Who has done this assignment?",
-    choice1: "Mike Tyson",
-    choice2: "Tyler Nguyen",
-    choice3: "Nick Henderson",
-    choice4: "Johnny Pham",
-    rightAnswer:"Nick Henderson"
+    question: "(Genesis 1:2) What was the earth like at this time?",
+    choice1: "Formless",
+    choice2: "Empty",
+    choice3: "A and B",
+    choice4: "Light",
+    rightAnswer:"A and B"
 },
 {
-    question: "Who has killed Rag?",
-    choice1: "Floki",
-    choice2: "Rollo",
-    choice3: "Nick Henderson",
-    choice4: "Mike Nguyen",
-    rightAnswer:"Mike"
-
-
-
+    question: "(Genesis 1:5) What does God call the light?",
+    choice1: "Day",
+    choice2: "Night",
+    choice3: "Morning",
+    choice4: "Evening",
+    rightAnswer:"Day"
 }
 ];
 // availableQuestion is dynamic. Its element removed when a random question selected.
@@ -38,20 +36,21 @@ const startingGame= () =>{
     roundControl.style.visibility= "hidden";
     let numOfRemaining=availableQuestion.length;
     if (numOfRemaining>0){
-        let questionIndex=Math.floor(Math.random()*numOfRemaining);
+        questionIndex=Math.floor(Math.random()*numOfRemaining);
         let myRandQuestion=availableQuestion[questionIndex].question;
         questionElement.innerText=myRandQuestion;
         let myAnswer=availableQuestion[questionIndex].rightAnswer;
-    for (let i=0; i<answerTargets.length; i++){
+        for (let i=0; i<answerTargets.length; i++){
         //To populate multiple choice answerTargets;
-        answerTargets[i].innerText=availableQuestion[questionIndex][`choice${i+1}`];
-    }
-    availableQuestion.splice(questionIndex,1);
-    theAnswer= myAnswer;
+            answerTargets[i].innerText=availableQuestion[questionIndex][`choice${i+1}`];
+        }
+        availableQuestion.splice(questionIndex,1);
+        theAnswer= myAnswer;
     }
     else{
         roundControl.innerText= "You've finished the quiz";
         roundControl.style.visibility= "visible";
+        playing=false;
     }
 }
 answerTargets.forEach(answerTarget =>{
@@ -64,7 +63,9 @@ answerTargets.forEach(answerTarget =>{
         else if(playing){
             roundControl.innerText="You got it wrong. Click here to move to the next question   ";
             roundControl.style.visibility="visible";
-            playing=false;            
+            playing=false;       
+            // rightChoicereturns the key that holds right answer
+            
         }
     }
 }
