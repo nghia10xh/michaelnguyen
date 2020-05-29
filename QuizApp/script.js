@@ -9,7 +9,7 @@ const dataBase=[{
     choice1: "Heavens and the earth",
     choice2: "Light",
     choice3: "The earth",
-    choice4: "Johnny",
+    choice4: "Water",
     rightAnswer:"Heavens and the earth"
 },
 {
