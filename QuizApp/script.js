@@ -1,4 +1,3 @@
-
 var questionElement=document.getElementById("question");
 var answerTargets=Array.from(document.getElementsByClassName("answers"));
 var roundControl=document.getElementById("advance");
@@ -6,9 +5,8 @@ var questionCountElement=document.getElementById("questionDisplay");
 var questionCount=Number(questionCountElement.innerHTML);
 var scoreElement=document.getElementById("score");
 var scoreCount=Number(scoreElement.innerHTML);
-//var scoreLink=document.getElementById('score-link');
+
 var playing=true;
-//scoreLink.style.visibility='hidden';
 // numbOfChoices refers to number of choices (used to display right answer)
 var numOfChoices=4;
 const dataBase=[{
