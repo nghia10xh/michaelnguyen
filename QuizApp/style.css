@@ -42,6 +42,9 @@ h1, a{
     align-items: center;
     justify-content: center;   
 } 
+#question{
+    text-align: center;
+}
 
 .btn{
     background-color: white;
@@ -71,9 +74,10 @@ h1, a{
     margin-bottom: 1rem;
 }
 .answers{
+    font-size: 1.2rem;
     padding: 1rem 2rem;
     width: 20rem;
-    color: white;
+    color: #56a5eb;
 }
 #advance{
     background-color:  white;
@@ -88,4 +92,15 @@ h1, a{
     flex-direction: column;
     justify-content: flex-start;
 
+}
+/*media queries*/
+@media only screen and (max-width:666px) and (min-width:407px){
+    html{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width:407px){
+    html{
+        font-size: 8px;
+    }
 }
