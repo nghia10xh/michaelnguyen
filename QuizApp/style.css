@@ -9,7 +9,7 @@ html{
 
     box-sizing: border-box; 
 }
-#body-game, #body-index{
+#body-game, #body-score, #body-index{
     background-image: url("backgroundImage.jpg");
     background-size: cover;
 }
@@ -17,10 +17,24 @@ h1, a{
     color: #56a5eb;
     text-decoration: none;
 }
-.wrapper:hover, .answer-wrapper:hover, #advance:hover{
-    cursor: pointer;
+.heads-up {
+    display: flex;
+    width: 20rem;
+    height: 10rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-
+.btn:hover, .answer-wrapper:hover, #advance:hover{
+    cursor: pointer;
+    box-shadow: 0 0 1rem 0.25rem #56a5eb;
+    transition: 0.5s;
+}
+/*
+.btn:hover{
+    box-shadow: 0 0 1rem 0.25rem;
+    transition: 0.5s;
+} */
 .container {
     height: 100vh;
     display: flex;
@@ -28,17 +42,22 @@ h1, a{
     align-items: center;
     justify-content: center;   
 } 
-.wrapper{
+
+.btn{
     background-color: white;
     font-size: 1.5rem;
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     width: 15rem;
-    padding: 1.5rem 0 1rem 0;
+    padding: 1.5rem 0 1.5rem 0;
     border-radius: 0.9rem;
     border: 0.2rem solid #56a5eb;
-    text-decoration: none;
+    transition: 0.01ms;
+    
+}
+#score .btn{
+    padding: 1.5rem 1rem 1.5rem 1rem;
 }
 /*The CSS code below for game.html */
 .radio-button{
@@ -54,10 +73,19 @@ h1, a{
 .answers{
     padding: 1rem 2rem;
     width: 20rem;
+    color: white;
 }
 #advance{
     background-color:  white;
     padding: 1.5rem 1rem;
     border: 0.2rem solid #56a5eb;
+
+}
+
+/*Style score page*/
+#body-score .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
 }

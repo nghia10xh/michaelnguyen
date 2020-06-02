@@ -2,8 +2,15 @@
 var questionElement=document.getElementById("question");
 var answerTargets=Array.from(document.getElementsByClassName("answers"));
 var roundControl=document.getElementById("advance");
+var questionCountElement=document.getElementById("questionDisplay");
+var questionCount=Number(questionCountElement.innerHTML);
+var scoreElement=document.getElementById("score");
+var scoreCount=Number(scoreElement.innerHTML);
+var scoreLink=document.getElementById('score-link');
 var playing=true;
-
+scoreLink.style.visibility='hidden';
+// numbOfChoices refers to number of choices (used to display right answer)
+var numOfChoices=4;
 const dataBase=[{
     question: "(Genesis 1:1) Fill in the blank: In the beginning God created___?",
     choice1: "Heavens and the earth",
@@ -30,42 +37,86 @@ const dataBase=[{
 }
 ];
 // availableQuestion is dynamic. Its element removed when a random question selected.
-var availableQuestion=dataBase;
+var availableQuestion=Array.from(dataBase);
 const startingGame= () =>{
-    playing=true;
-    roundControl.style.visibility= "hidden";
     let numOfRemaining=availableQuestion.length;
+    if (questionCount<dataBase.length){
+    questionCount++;
+    }
     if (numOfRemaining>0){
-        questionIndex=Math.floor(Math.random()*numOfRemaining);
-        let myRandQuestion=availableQuestion[questionIndex].question;
-        questionElement.innerText=myRandQuestion;
-        let myAnswer=availableQuestion[questionIndex].rightAnswer;
-        for (let i=0; i<answerTargets.length; i++){
-        //To populate multiple choice answerTargets;
-            answerTargets[i].innerText=availableQuestion[questionIndex][`choice${i+1}`];
-        }
-        availableQuestion.splice(questionIndex,1);
-        theAnswer= myAnswer;
+        roundControl.style.visibility= "hidden";
+        answerTargets.forEach(answerTarget=>{
+            answerTarget.parentNode.style.border="0.2rem solid #56a5eb";
+            }
+        );
+        questionCountElement.innerText=questionCount;
+        playing=true;
+        if (numOfRemaining>0){
+            questionIndex=Math.floor(Math.random()*numOfRemaining);
+            let myRandQuestion=availableQuestion[questionIndex].question;
+            questionElement.innerText=myRandQuestion;
+            let myAnswer=availableQuestion[questionIndex].rightAnswer;
+            for (let i=0; i<answerTargets.length; i++){
+            //To populate multiple choice answerTargets;
+                answerTargets[i].innerText=availableQuestion[questionIndex][`choice${i+1}`];
+            }
+            availableQuestion.splice(questionIndex,1);
+            theAnswer= myAnswer;
     }
     else{
-        roundControl.innerText= "You've finished the quiz";
-        roundControl.style.visibility= "visible";
         playing=false;
     }
 }
+    
+}
 answerTargets.forEach(answerTarget =>{
     answerTarget.onclick=function(){
+        //when user chooses the right answer
         if (answerTarget.innerText==theAnswer && playing){
-            roundControl.innerText="You got it right. Click here to move to the next question";
-            roundControl.style.visibility="visible";
-            playing=false;
+            if (availableQuestion.length>0){
+                answerTarget.parentNode.style.border='0.5rem solid #33FFB3';
+                roundControl.innerText="You got it right. Click here to move to the next question";
+                scoreCount++;
+                scoreElement.innerText=scoreCount;
+                roundControl.style.visibility="visible";
+                playing=false;
+            }
+            else {
+                answerTarget.parentNode.style.border='0.5rem solid #33FFB3';
+                roundControl.innerText="You got it right and finished the quiz app";
+                scoreLink.style.visibility='visible';
+                scoreCount++;
+                scoreElement.innerText=scoreCount;
+                roundControl.style.visibility="visible";
+                
+            }
         }
+        // when user chooses the wrong answer
         else if(playing){
-            roundControl.innerText="You got it wrong. Click here to move to the next question   ";
-            roundControl.style.visibility="visible";
-            playing=false;       
-            // rightChoicereturns the key that holds right answer
-            
+            if (availableQuestion.length>0){
+                answerTarget.parentNode.style.border='0.5rem solid red';
+                roundControl.innerText="You got it wrong. Click here to move to the next question";
+                roundControl.style.visibility="visible";
+                playing=false;
+                for (let i=0;i<numOfChoices;i++){
+                    if (answerTargets[i].innerText==theAnswer){
+                        answerTargets[i].parentNode.style.border="0.5rem solid #33FFB3";
+                    }
+                }   
+            }
+            else{
+                answerTarget.parentNode.style.border='0.5rem solid red';
+                roundControl.innerText="You got it wrong and finished the quiz app";
+                scoreLink.style.visibility='visible';
+                roundControl.style.visibility="visible";
+                playing=false;
+                for (let i=0;i<numOfChoices;i++){
+                    if (answerTargets[i].innerText==theAnswer){
+                        answerTargets[i].parentNode.style.border="0.5rem solid red";
+                    }
+                }
+            }
+            // rightChoicereturns the key that holds right answer   
         }
     }
 }
@@ -94,4 +145,5 @@ for (let i=0;i<answerTargets.length;i++){
 */
 roundControl.onclick=startingGame;
 startingGame();
+localStorage.setItem('Mike','10');
 
