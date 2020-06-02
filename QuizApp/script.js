@@ -6,9 +6,9 @@ var questionCountElement=document.getElementById("questionDisplay");
 var questionCount=Number(questionCountElement.innerHTML);
 var scoreElement=document.getElementById("score");
 var scoreCount=Number(scoreElement.innerHTML);
-var scoreLink=document.getElementById('score-link');
+//var scoreLink=document.getElementById('score-link');
 var playing=true;
-scoreLink.style.visibility='hidden';
+//scoreLink.style.visibility='hidden';
 // numbOfChoices refers to number of choices (used to display right answer)
 var numOfChoices=4;
 const dataBase=[{
@@ -73,6 +73,7 @@ answerTargets.forEach(answerTarget =>{
     answerTarget.onclick=function(){
         //when user chooses the right answer
         if (answerTarget.innerText==theAnswer && playing){
+            // when user has yet get to the last question
             if (availableQuestion.length>0){
                 answerTarget.parentNode.style.border='0.5rem solid #33FFB3';
                 roundControl.innerText="You got it right. Click here to move to the next question";
@@ -81,10 +82,11 @@ answerTargets.forEach(answerTarget =>{
                 roundControl.style.visibility="visible";
                 playing=false;
             }
+            // when user has get to the last question
             else {
                 answerTarget.parentNode.style.border='0.5rem solid #33FFB3';
                 roundControl.innerText="You got it right and finished the quiz app";
-                scoreLink.style.visibility='visible';
+                //scoreLink.style.visibility='visible';
                 scoreCount++;
                 scoreElement.innerText=scoreCount;
                 roundControl.style.visibility="visible";
@@ -93,6 +95,7 @@ answerTargets.forEach(answerTarget =>{
         }
         // when user chooses the wrong answer
         else if(playing){
+            // when user has yet get to the last question
             if (availableQuestion.length>0){
                 answerTarget.parentNode.style.border='0.5rem solid red';
                 roundControl.innerText="You got it wrong. Click here to move to the next question";
@@ -104,15 +107,16 @@ answerTargets.forEach(answerTarget =>{
                     }
                 }   
             }
+            // when user has get to the last question
             else{
                 answerTarget.parentNode.style.border='0.5rem solid red';
-                roundControl.innerText="You got it wrong and finished the quiz app";
-                scoreLink.style.visibility='visible';
+                roundControl.innerText="You got it wrong and finished the quiz app"; 
+                //scoreLink.style.visibility='visible';
                 roundControl.style.visibility="visible";
                 playing=false;
                 for (let i=0;i<numOfChoices;i++){
                     if (answerTargets[i].innerText==theAnswer){
-                        answerTargets[i].parentNode.style.border="0.5rem solid red";
+                        answerTargets[i].parentNode.style.border="0.5rem solid #33FFB3";
                     }
                 }
             }
