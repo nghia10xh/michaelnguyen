@@ -11,9 +11,25 @@
                 Home Page
             </a>
             <header><h1>Input your name to login your score. </h1></header>
-                
+            <div class="submitContainer">
+                <input type="text" id="name-input" class="btn" placeholder="Input your name" minlength="4" maxlength="20" required>
+                <button type="button" id='btnSubmit' class="btn">Click here to log your name and score</button>
+                <button type='button' id='scoreDisplayBtn' class="btn">Click here to see score board</button>
+            </div>
+            <!--
+            <table class="table-content">
+                <thead>
+                    <tr class='table-Row'>
+                        <th class="userColumn">User name</th>
+                        <th class='scoreColumn'>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+            -->
         </main>
-        <script src="script.js"></script>
+        <script src="score.js"></script>
     </body>
 
 </html>

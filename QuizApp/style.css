@@ -1,12 +1,11 @@
 html{
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     background-color: #ecf5ff; 
 }
 * {
     margin: 0;
     padding: 0;
-
+    font-family: cursive;
     box-sizing: border-box; 
 }
 #body-game, #body-score, #body-index{
@@ -14,20 +13,20 @@ html{
     background-size: cover;
 }
 h1, a{
-    color: #56a5eb;
+    color: #6419EF;
     text-decoration: none;
 }
 .heads-up {
     display: flex;
     width: 20rem;
-    height: 10rem;
+    height: 5rem;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.btn:hover, .answer-wrapper:hover, #advance:hover{
+.btn:hover, .answer-wrapper:hover, #advance:hover, #btnSubmit:hover{
     cursor: pointer;
-    box-shadow: 0 0 1rem 0.25rem #56a5eb;
+    box-shadow: 0 0 1rem 0.25rem #19B3EF;
     transition: 0.5s;
 }
 /*
@@ -40,12 +39,35 @@ h1, a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;  
 } 
-#question{
-    text-align: center;
+#body-game .container{
+    justify-content: start;
 }
 
+#question, #name-input, #btnSubmit{
+    text-align: center;
+}
+#question{
+    margin-bottom: 1.5rem;
+}
+#body-score .container #btnSubmit, #body-score .container #name-input, #body-score .container #scoreDisplayBtn{
+    color: #6419EF;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.2rem;
+    margin: 1rem 0.4rem;
+}
+/*To style the submission part to make the input field and submit button on the same line */
+.submitContainer{
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#name-input{
+    margin-top: 1rem;
+    padding: 0.5rem 0.2rem;
+}
 .btn{
     background-color: white;
     font-size: 1.5rem;
@@ -55,34 +77,39 @@ h1, a{
     width: 15rem;
     padding: 1.5rem 0 1.5rem 0;
     border-radius: 0.9rem;
-    border: 0.2rem solid #56a5eb;
-    transition: 0.01ms;
-    
+    border: 0.2rem solid #19B3EF;
 }
-#score .btn{
-    padding: 1.5rem 1rem 1.5rem 1rem;
-}
+/*To style the home button in score.html*/
+#body-score .container .btn{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+} 
 /*The CSS code below for game.html */
+#score-link{
+    padding: 0.5rem 0 0.5rem 0;
+    margin-bottom: 0 0;
+}
 .radio-button{
     margin-right: 1rem;
-    background-color:  #56a5eb ;
+    background-color:  #19B3EF ;
     padding: 1rem 2rem;
 }
 .answer-wrapper{
     display: flex;
-    border: 0.1rem solid #56a5eb;
+    border: 0.1rem solid #19B3EF;
     margin-bottom: 1rem;
 }
 .answers{
     font-size: 1.2rem;
     padding: 1rem 2rem;
     width: 20rem;
-    color: #56a5eb;
+    color: #6419EF;
 }
 #advance{
     background-color:  white;
     padding: 1.5rem 1rem;
-    border: 0.2rem solid #56a5eb;
+    border: 0.2rem solid #19B3EF;
 
 }
 
@@ -91,8 +118,22 @@ h1, a{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
 }
+
+/*To style the table for score page */
+.table-content{
+    background-color: white;
+    color: #6419EF;
+    font-size: 1.6rem;
+    width: 34.67rem;
+    text-align: left;
+    border-collapse: collapse;
+}
+.table-Row .userColumn, .table-Row .scoreColumn{
+    border-bottom: 0.01rem solid #19B3EF;
+    
+}
+
 /*media queries*/
 @media only screen and (max-width:666px) and (min-width:407px){
     html{
