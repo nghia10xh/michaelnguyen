@@ -2,6 +2,10 @@ html{
     font-size: 16px;
     background-color: #ecf5ff; 
 }
+:root{
+    --main-text-color:#6419EF;
+    --background-color: white;
+}
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +17,7 @@ html{
     background-size: cover;
 }
 h1, a{
-    color: #6419EF;
+    color: var(--main-text-color);
     text-decoration: none;
 }
 .heads-up {
@@ -39,7 +43,8 @@ h1, a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  
+    justify-content: center; 
+    text-align: center; 
 } 
 #body-game .container{
     justify-content: start;
@@ -52,7 +57,7 @@ h1, a{
     margin-bottom: 1.5rem;
 }
 #body-score .container #btnSubmit, #body-score .container #name-input, #body-score .container #scoreDisplayBtn{
-    color: #6419EF;
+    color: var(--main-text-color);
     font-size: 0.85rem;
     padding: 0.5rem 0.2rem;
     margin: 1rem 0.4rem;
@@ -69,7 +74,7 @@ h1, a{
     padding: 0.5rem 0.2rem;
 }
 .btn{
-    background-color: white;
+    background-color: var(--background-color);
     font-size: 1.5rem;
     text-align: center;
     margin-top: 1rem;
@@ -104,10 +109,10 @@ h1, a{
     font-size: 1.2rem;
     padding: 1rem 2rem;
     width: 20rem;
-    color: #6419EF;
+    color: var(--main-text-color);
 }
 #advance{
-    background-color:  white;
+    background-color:  var(--background-color);
     padding: 1.5rem 1rem;
     border: 0.2rem solid #19B3EF;
 
@@ -122,8 +127,8 @@ h1, a{
 
 /*To style the table for score page */
 .table-content{
-    background-color: white;
-    color: #6419EF;
+    background-color: var(--background-color);
+    color: var(--main-text-color);
     font-size: 1.6rem;
     width: 34.67rem;
     text-align: left;
@@ -135,13 +140,20 @@ h1, a{
 }
 
 /*media queries*/
-@media only screen and (max-width:666px) and (min-width:407px){
+@media only screen and (max-width:666px){
+    :root{
+        --main-text-color:#C2E9A3;
+        --background-color: #9AA690;
+    }
     html{
         font-size: 10px;
     }
-}
-@media only screen and (max-width:407px){
-    html{
-        font-size: 8px;
-    }
+   .btn{
+        width: 60%;
+        margin-top: 3rem;
+   }
+   .answer-wrapper{
+       margin-top: 2rem;
+   }
+  
 }
